@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --surface-color: #f8f9fb;
+    --surface-hover: #f0f1f5;
+    --text-color: #1a1a2e;
+    --text-muted: #6b7280;
+    --accent-color: #4a6cf7;
+    --accent-glow: rgba(74, 108, 247, 0.08);
+    --accent-gradient: linear-gradient(135deg, #4a6cf7, #7c5ce7);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================
+   Page Layout
+   ======================== */
+.staticrypt-page {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decorative gradient */
+.staticrypt-page::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74, 108, 247, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.staticrypt-page::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124, 92, 231, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ========================
+   Auth Card
+   ======================== */
+.staticrypt-body {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 56px 48px;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+/* ========================
+   Lock Icon
+   ======================== */
+.staticrypt-lock-icon {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+/* ========================
+   Title
+   ======================== */
+.staticrypt-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 0.6s ease-out 0.15s both;
+}
+
+/* ========================
+   Instructions
+   ======================== */
+.staticrypt-instructions {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 32px;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* ========================
+   Form
+   ======================== */
+.staticrypt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: fadeInUp 0.6s ease-out 0.25s both;
+}
+
+/* ========================
+   Input
+   ======================== */
+.staticrypt-input {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    outline: none;
+    transition: var(--transition);
+    letter-spacing: 0.02em;
+}
+
+.staticrypt-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.staticrypt-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px var(--accent-glow), 0 0 16px var(--accent-glow);
+}
+
+/* ========================
+   Button
+   ======================== */
+.staticrypt-decrypt-button {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    background: var(--accent-gradient);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.staticrypt-decrypt-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.staticrypt-decrypt-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(74, 108, 247, 0.3);
+}
+
+.staticrypt-decrypt-button:hover::before {
+    opacity: 1;
+}
+
+.staticrypt-decrypt-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(74, 108, 247, 0.2);
+}
+
+/* ========================
+   Footer
+   ======================== */
+.staticrypt-footer {
+    margin-top: 32px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+/* ========================
+   Error Message (StatiCrypt)
+   ======================== */
+.staticrypt-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: -4px;
+    animation: shake 0.4s ease-out;
+}
+
+/* ========================
+   Animations
+   ======================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-6px);
+    }
+
+    40% {
+        transform: translateX(6px);
+    }
+
+    60% {
+        transform: translateX(-4px);
+    }
+
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media screen and (max-width: 640px) {
+    .staticrypt-page {
+        padding: 20px;
+    }
+
+    .staticrypt-body {
+        padding: 40px 24px;
+        border-radius: var(--radius);
+    }
+
+    .staticrypt-title {
+        font-size: 1.5rem;
+    }
+
+    .staticrypt-instructions {
+        font-size: 0.85rem;
+    }
+}
